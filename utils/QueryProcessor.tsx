@@ -26,5 +26,13 @@ export default function QueryProcessor(query: string): string {
     return (x*y).toString();
   }
 
+  const largestMatch = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
+  if (largestMatch) {
+    const numbers: number[] = [parseInt(largestMatch[1]), parseInt(largestMatch[2]), parseInt(largestMatch[3])];
+
+    return Math.max(...numbers).toString();
+  }
+  
+
   return "";
 }
